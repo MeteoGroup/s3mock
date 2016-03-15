@@ -1,0 +1,8 @@
+SQS mock docker image based on S3 ninja
+Copyright © 2016 MeteoGroup Deutschland GmbH
+
+
+This product uses the following software:
+
+- S3 ninja, Copyright 2015 scireum GmbH, released under the MIT License
+- AWS SDK for Java, Copyright 2010-2014 Amazon.com, Inc., released under Apache License 2.0
