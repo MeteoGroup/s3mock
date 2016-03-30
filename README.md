@@ -1,5 +1,5 @@
 
-S3 mock
+S3 mock ![build status](https://travis-ci.org/MeteoGroup/s3mock.svg)
 =======
 
 Docker image providing a S3 mock based on
