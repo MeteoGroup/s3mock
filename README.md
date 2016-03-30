@@ -18,18 +18,24 @@ By default _S3 ninja_ is bound to port 9444. To select another port set
 the `S3NINJA_PORT` environment variable, e.g.:
 
 ```bash
-S3NINJA_PORT=1234 ./run.sh
+S3NINJA_PORT=9444 ./run.sh
 ```
 
 
-To run the tests run `mvn test` within the `test` directory. Per default
+To run the tests run `mvn -f test test` from the repository root. Per default
 tests try to connect to `http://127.0.0.1:9444/s3`. This can be changed be
 setting the `s3mock` system property, e.g.:
 
 ```bash
-mvn test -Ds3mock=http://192.168.99.100:1234/s3
+mvn -f test test -Ds3mock=http://192.168.99.100:9444/s3
 ```
 
+
+To connect to the _S3 mock_ you should use the following credentials:
+```json5
+apiKey: "AKIAIOSFODNN7EXAMPLE"
+secretKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+```
 
 Copyright & Licences
 --------------------
