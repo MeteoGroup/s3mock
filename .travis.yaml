@@ -1,0 +1,15 @@
+sudo: required
+
+language: java
+jdk: jdk8
+
+services:
+  - docker
+
+install:
+  - mvn -f test validate
+
+script:
+  - ./build.sh
+  - ./run.sh "" -d
+  - mvn -f test
