@@ -42,7 +42,8 @@ Please make sure to configure the credentials and endpoint in you S3 client
 and enable path-style access. For the AWS Java SDK this can be done by
 
 ```java
-client = new AmazonS3Client(new BasicAWSCredentials("AKIAIOSFODNN7EXAMPLE", "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"));
+client = new AmazonS3Client(new BasicAWSCredentials(
+    "AKIAIOSFODNN7EXAMPLE", "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"));
 client.setEndpoint("http://<s3mock ip>:<s3mock port>");
 client.setS3ClientOptions(new S3ClientOptions().withPathStyleAccess(true));
 ```
