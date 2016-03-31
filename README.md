@@ -32,9 +32,18 @@ mvn -f test test -Ds3mock=http://192.168.99.100:9444/s3
 
 
 To connect to the _S3 mock_ you should use the following credentials:
+
 ```json5
 apiKey: "AKIAIOSFODNN7EXAMPLE"
 secretKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+```
+
+Please make sure to set the S3 endpoint and enable path-style access in you S3
+client. With the AWS Java SDK this is done by
+
+```java
+client.setEndpoint("http://<s3mock ip>:<s3mock port>");
+client.setS3ClientOptions(new S3ClientOptions().withPathStyleAccess(true));
 ```
 
 Copyright & Licences
