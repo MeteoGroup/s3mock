@@ -48,7 +48,7 @@ public class S3MockTest {
     @BeforeMethod
     public void setUp() throws Exception {
         s3mock = System.getProperty("s3mock");
-        s3mock = s3mock != null ? s3mock : "http://127.0.0.1:9444/s3";
+        s3mock = s3mock != null ? s3mock : "http://localhost:9444/s3";
         client = new AmazonS3Client(new BasicAWSCredentials("AKIAIOSFODNN7EXAMPLE", "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"));
         client.setEndpoint(s3mock);
     }

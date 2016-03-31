@@ -23,7 +23,7 @@ S3NINJA_PORT=9444 ./run.sh
 
 
 To run the tests run `mvn -f test test` from the repository root. Per default
-tests try to connect to `http://127.0.0.1:9444/s3`. This can be changed be
+tests try to connect to `http://localhost:9444/s3`. This can be changed be
 setting the `s3mock` system property, e.g.:
 
 ```bash
