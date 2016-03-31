@@ -24,6 +24,7 @@ package org.meteogroup.s3mock;
 
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.S3ClientOptions;
 import com.amazonaws.services.s3.model.*;
 import com.amazonaws.util.IOUtils;
 import org.testng.annotations.AfterClass;
@@ -51,6 +52,7 @@ public class S3MockTest {
         s3mock = s3mock != null ? s3mock : "http://localhost:9444/s3";
         client = new AmazonS3Client(new BasicAWSCredentials("AKIAIOSFODNN7EXAMPLE", "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"));
         client.setEndpoint(s3mock);
+        client.setS3ClientOptions(new S3ClientOptions().withPathStyleAccess(true));
     }
 
     @Test
