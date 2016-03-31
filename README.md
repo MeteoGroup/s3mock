@@ -7,8 +7,10 @@ Docker image providing a S3 mock based on
 
 > S3 ninja emulates the S3 API for development and testing purposes.
 
-`test` contains a java test suite showing the use of _S3 mock_ together
-with Amazon's [AWS SDK for Java ](https://aws.amazon.com/sdk-for-java/).
+`test` contains a java
+[test suite](org.meteogroup.s3mock.S3MockTest)
+showing the use of _S3 mock_ together with Amazon's
+[AWS SDK for Java](https://aws.amazon.com/sdk-for-java/).
 
 To build the image run `./build.sh`
 
@@ -39,7 +41,7 @@ secretKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
 ```
 
 Please make sure to configure the credentials and endpoint in you S3 client
-and enable path-style access. For the AWS Java SDK this can be done by
+and enable path-style access. For the AWS SDK for Java this can be done by
 
 ```java
 client = new AmazonS3Client(new BasicAWSCredentials(
