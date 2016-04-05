@@ -1,4 +1,4 @@
-SQS mock docker image based on S3 ninja
+S3 mock docker image based on S3 ninja
 Copyright © 2016 MeteoGroup Deutschland GmbH
 
 
