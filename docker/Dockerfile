@@ -25,7 +25,8 @@ FROM anapsix/alpine-java:jre8
 ENV S3NINJA_HOME=/opt/s3ninja
 ENV S3NINJA_WORK=/var/lib/s3ninja
 
-RUN mkdir -p "$S3NINJA_HOME" &&\
+RUN apk --no-cache add --update openssl &&\
+    mkdir -p "$S3NINJA_HOME" &&\
     cd "$S3NINJA_HOME" &&\
     wget https://oss.sonatype.org/content/groups/public/com/scireum/s3ninja/2.7/s3ninja-2.7-zip.zip &&\
     unzip s3ninja-2.7-zip.zip &&\
