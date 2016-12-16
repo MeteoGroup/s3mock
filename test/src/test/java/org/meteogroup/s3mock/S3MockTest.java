@@ -27,9 +27,8 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.S3ClientOptions;
 import com.amazonaws.services.s3.model.*;
 import com.amazonaws.util.IOUtils;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testcontainers.containers.GenericContainer;
+import org.testng.annotations.*;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
@@ -45,11 +44,22 @@ public class S3MockTest {
 
     private AmazonS3Client client;
     private String s3mock;
+    private GenericContainer s3server = new GenericContainer("meteogroup/s3mock:latest")
+            .withExposedPorts(9444);
+
+    private int port;
+    private String host;
+    @BeforeSuite
+    public void before() throws Exception{
+        s3server.start();
+        port = s3server.getMappedPort(9444);
+        host = s3server.getContainerIpAddress();
+    }
 
     @BeforeMethod
     public void setUp() throws Exception {
         s3mock = System.getProperty("s3mock");
-        s3mock = s3mock != null ? s3mock : "http://localhost:9444/s3";
+        s3mock = s3mock != null ? s3mock : "http://" + host + ":" + port + "/s3";
         client = new AmazonS3Client(new BasicAWSCredentials("AKIAIOSFODNN7EXAMPLE", "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"));
         client.setEndpoint(s3mock);
         client.setS3ClientOptions(new S3ClientOptions().withPathStyleAccess(true));
@@ -118,5 +128,9 @@ public class S3MockTest {
     @AfterClass(alwaysRun = false)
     public void tear_down() throws Exception {
         client.deleteBucket(BUCKET_NAME);
+    }
+    @AfterSuite
+    public void after() throws Exception{
+        s3server.stop();
     }
 }
