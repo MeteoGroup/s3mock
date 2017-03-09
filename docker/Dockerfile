@@ -44,4 +44,4 @@ COPY s3ninja.sh /
 EXPOSE 9444
 
 USER s3ninja
-CMD /s3ninja.sh s3ninja
+CMD /s3ninja.sh
