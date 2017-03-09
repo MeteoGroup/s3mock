@@ -8,6 +8,7 @@ services:
 
 install:
   - mvn -f test validate
+  - docker pull openjdk:8-jre-alpine
 
 script:
   - ./build.sh

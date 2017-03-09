@@ -1,4 +1,4 @@
-FROM anapsix/alpine-java:jre8
+FROM openjdk:8-jre-alpine
 
 # Copyright © 2016 Meteogroup
 #
@@ -26,7 +26,7 @@ ENV S3NINJA_HOME=/opt/s3ninja
 ENV S3NINJA_WORK=/var/lib/s3ninja
 
 RUN apk --no-cache --update upgrade &&\
-    apk --no-cache --update add openssl &&\
+    apk --no-cache --update add bash openssl &&\
     mkdir -p "$S3NINJA_HOME" &&\
     cd "$S3NINJA_HOME" &&\
     wget https://oss.sonatype.org/content/groups/public/com/scireum/s3ninja/2.7/s3ninja-2.7-zip.zip &&\
