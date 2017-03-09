@@ -11,5 +11,5 @@ install:
 
 script:
   - ./build.sh
-  - docker run -ti -p 9444:9444 -d meteogroup/s3mock
+  - docker run -t -p 9444:9444 -d meteogroup/s3mock
   - mvn -f test test
